@@ -9,7 +9,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
-    [Header("NPC Material")]
+    [Header("Quest Material")]
     public NPCManager NPC;
 
     [Header("UI Component Assignment")]

@@ -16,8 +16,10 @@ public class NPCManager : MonoBehaviour
     [Header("Quest")]
     public ScriptableData scenarioData_Start;
     public ScriptableData scenarioData_End;
+    public GameObject questItem;
+    public QuestArrowManager questArrow;
 
-    [Header("Quest Tracking State")]
+    [Header("Quest Tracking State (For test)")]
     public bool hasStartedQuest = false;
     public bool hasQuestItem = false;
 
@@ -28,6 +30,7 @@ public class NPCManager : MonoBehaviour
     private bool isTalking = false;
     private bool playerInRange = false;
     private bool isFacingRight = true;
+    private bool itemSpawned = false;
 
     private void Awake()
     {
@@ -40,6 +43,9 @@ public class NPCManager : MonoBehaviour
     {
         if (interactPrompt != null)
             interactPrompt.SetActive(false);
+
+        if (questItem != null)
+            questItem.SetActive(false);
 
         if (pinpoints != null && pinpoints.Length > 0)
         {
@@ -139,6 +145,19 @@ public class NPCManager : MonoBehaviour
         isTalking = false;
         SetAnimationStates(idle: true, walk: false, talk: false);
 
+        if (hasStartedQuest && !hasQuestItem && !itemSpawned)
+        {
+            itemSpawned = true;
+
+            if (questItem != null)
+            {
+                questItem.SetActive(true);
+
+                if (questArrow != null)
+                    questArrow.SetTarget(questItem.transform);
+            }
+        }
+
         if (interactPrompt != null)
             interactPrompt.SetActive(playerInRange && CanInteract());
     }
@@ -179,8 +198,6 @@ public class NPCManager : MonoBehaviour
             interactPrompt.SetActive(false);
 
         EndDialogue();
-
-        Debug.Log("Player left NPC interaction zone");
     }
 
     public bool IsPlayerInRange() => playerInRange;
