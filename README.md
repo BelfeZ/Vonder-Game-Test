@@ -13,6 +13,7 @@ Virtual camera for both timeline and cinemachine and put in scene.
 
 15.00pm - 18.00pm | Use Arrow guideline to item into project and create timeline with addition VFX and sound effect , Adjust timelines
 - Insert the arrow logic in game and Create 2 timelines for starting quest and ending quest, Import some sound effect and put in the Sound manager.
+- The timelines contain signal track focus (Start quest) and cenimachine camera focus (End quest)
 
 18.00pm - 20.00pm | Polish some script and UI and Check critical bug
 - Polish some UI and some timeline (Add some VFX and make dialogue portrait can play).
