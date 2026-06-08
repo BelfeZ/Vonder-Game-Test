@@ -1,5 +1,5 @@
 **How to Open Scene**
-"SampleScene" in Assets/Scenes folder
+- "SampleScene" in Assets/Scenes folder
 
 **Object that can interact**
 - NPC can interact at first and after got quest item.
