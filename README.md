@@ -1,8 +1,29 @@
-(7/6/2026)
+**How to Open Scene**
+"SampleScene" in Assets/Scenes folder
+
+**Object that can interact**
+- NPC can interact at first and after got quest item.
+- Potion (Appear after first talk NPC)
+
+**Timeline asset location**
+- In Assets/Timelines this project have 2 timelines
+
+**How Dialogue UI trigger**
+- This project Dialogue data will use from Scenario Data in folder Assets/Scenarios and Trigger & Handle in QuestManager.cs
+
+**How item arrow and Item collect notification trigger**
+- Item arrow will appear when player talked to NPC first time after that Quest start will appear with Item arrow that point to the item location with handle when player walk off item the arrow will reappear.
+
+**Used 3rd Party Asset (All asset are from Unity asset store and free.)**
+- Casual Game Sounds U6, Classic Footstep SFX, Essential 2D Particle FX, GameInputControllerIconsFree, Layer Lab, LUShvalleySound, Pixel Tiles pack, Potion, Tiny Swords, Wizard - 2D Character
+
+**(7/6/2026)**
+
 6.00pm - 11.00pm | Gathering assets for this test and setup scene, Import package, Setup Player controler
 - Finding assets that can use in this test and import cinemachine into project, The playercontroller is came with Character asset.
 
-(8/6/2026)
+**(8/6/2026)**
+
 9.00am - 13.00pm | Create animation for NPC and can interact with handle, Create Scenario Data System structure for making dialogue with combination of timeline that can edit later, 
 Virtual camera for both timeline and cinemachine and put in scene.
 - NPC animation contain Idle, Walk and Talk with handled state and NPC have patrol via pinpoint system and Create Scenario Data that can insert dialogue and timeline and banner between 1 scenario.
