@@ -118,6 +118,18 @@ public class QuestManager : MonoBehaviour
         nameWindow.text = step.characterName;
         activeFullText = step.conversationText;
 
+        if (portraitAnimator != null)
+        {
+            bool hasPortrait = !string.IsNullOrEmpty(step.faceAnimationState);
+
+            portraitAnimator.gameObject.SetActive(hasPortrait);
+
+            if (hasPortrait)
+            {
+                portraitAnimator.Play(step.faceAnimationState);
+            }
+        }
+
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
 
         typingCoroutine = StartCoroutine(TypeText(activeFullText));

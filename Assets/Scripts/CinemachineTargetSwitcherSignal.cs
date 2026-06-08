@@ -6,6 +6,7 @@ public class CinemachineTargetSwitcherSignal : MonoBehaviour
     public Transform cameraTarget;
     public Transform playerTransform;
     public Transform itemTransform;
+    public GameObject itemHighlight;
 
     public float smoothSpeed = 3f;
 
@@ -41,5 +42,15 @@ public class CinemachineTargetSwitcherSignal : MonoBehaviour
     public void ReturnToPlayer()
     {
         desiredTarget = playerTransform;
+    }
+
+    public void ShowHighlight()
+    {
+        itemHighlight.gameObject.SetActive(true);
+    }
+
+    public void HideHighlight()
+    {
+        itemHighlight.gameObject.SetActive(false);
     }
 }

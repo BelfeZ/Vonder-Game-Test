@@ -6,6 +6,7 @@ public class NPCManager : MonoBehaviour
 {
     [Header("UI")]
     public GameObject interactPrompt;
+    public GameObject talkableIcon;
 
     [Header("Pinpoints")]
     public Transform[] pinpoints;
@@ -58,6 +59,11 @@ public class NPCManager : MonoBehaviour
 
     private void Update()
     {
+        if (talkableIcon != null)
+        {
+            talkableIcon.SetActive(CanInteract());
+        }
+
         if (isQuestCompleted)
         {
             rb.linearVelocity = Vector2.zero;
@@ -68,6 +74,7 @@ public class NPCManager : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             SetAnimationStates(idle: false, walk: false, talk: true);
+            talkableIcon.gameObject.SetActive(false);
             return;
         }
 

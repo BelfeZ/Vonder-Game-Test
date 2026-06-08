@@ -35,7 +35,7 @@ MonoBehaviour:
     characterName: 
     faceAnimationState: 
     conversationText: 
-    timelineDirectorGameObjectName: CinemachineCamera
+    timelineDirectorGameObjectName: PantoItemTimeline
     bannerText: 
   - actionType: 0
     characterName: NPC
