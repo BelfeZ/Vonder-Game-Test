@@ -18,23 +18,34 @@ MonoBehaviour:
     faceAnimationState: 
     conversationText: Is this what you were looking for?
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 0
     characterName: NPC
     faceAnimationState: isTalk
     conversationText: Yes. Thank you.
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 0
     characterName: NPC
     faceAnimationState: isTalk
     conversationText: My work here is done.
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 0
     characterName: NPC
     faceAnimationState: isTalk
     conversationText: Goodbye.
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 1
     characterName: 
     faceAnimationState: 
     conversationText: 
-    timelineDirectorGameObjectName: 
+    timelineDirectorGameObjectName: VanishTimeline
+    bannerText: 
+  - actionType: 2
+    characterName: 
+    faceAnimationState: 
+    conversationText: 
+    timelineDirectorGameObjectName: VanishTimeline
+    bannerText: Quest Completed!

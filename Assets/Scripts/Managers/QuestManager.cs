@@ -87,6 +87,10 @@ public class QuestManager : MonoBehaviour
         {
             ExecuteTimeline(currentStep);
         }
+        else if (currentStep.actionType == ActionType.ShowBanner)
+        {
+            ExecuteBanner(currentStep);
+        }
     }
 
     private void ExecuteDialogue(ScenarioAction step)
@@ -137,6 +141,14 @@ public class QuestManager : MonoBehaviour
     private void OnTimelineFinished(PlayableDirector director)
     {
         director.stopped -= OnTimelineFinished;
+        AdvanceScenario();
+    }
+
+    private void ExecuteBanner(ScenarioAction step)
+    {
+        if (BannerManager.Instance != null)
+            BannerManager.Instance.ShowBanner(step.bannerText);
+
         AdvanceScenario();
     }
 

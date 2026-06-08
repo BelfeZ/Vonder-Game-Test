@@ -31,6 +31,7 @@ public class NPCManager : MonoBehaviour
     private bool playerInRange = false;
     private bool isFacingRight = true;
     private bool itemSpawned = false;
+    private bool isQuestCompleted = false;
 
     private void Awake()
     {
@@ -55,6 +56,12 @@ public class NPCManager : MonoBehaviour
 
     private void Update()
     {
+        if (isQuestCompleted)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         if (isTalking)
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
@@ -87,7 +94,7 @@ public class NPCManager : MonoBehaviour
 
     private IEnumerator PatrolRoutine()
     {
-        while (true)
+        while (!isQuestCompleted)
         {
             if (!isTalking && !isMoving)
             {
@@ -125,12 +132,14 @@ public class NPCManager : MonoBehaviour
         if (!hasStartedQuest)
         {
             hasStartedQuest = true;
-            BannerManager.Instance.ShowBanner("Quest Started!");
+            //BannerManager.Instance.ShowBanner("Quest Started!");
             QuestManager.Instance.StartScenario(scenarioData_Start);
         }
         else if (hasQuestItem)
         {
-            BannerManager.Instance.ShowBanner("Quest Completed!");
+            isQuestCompleted = true;
+
+            //BannerManager.Instance.ShowBanner("Quest Completed!");
             QuestManager.Instance.StartScenario(scenarioData_End);
         }
     }
@@ -145,7 +154,11 @@ public class NPCManager : MonoBehaviour
         if (!isTalking) return;
 
         isTalking = false;
-        SetAnimationStates(idle: true, walk: false, talk: false);
+
+        if (!isQuestCompleted)
+        {
+            SetAnimationStates(idle: true, walk: false, talk: false);
+        }
 
         if (hasStartedQuest && !hasQuestItem && !itemSpawned)
         {
@@ -200,6 +213,20 @@ public class NPCManager : MonoBehaviour
             interactPrompt.SetActive(false);
 
         EndDialogue();
+    }
+
+    public void PrepareForVanish()
+    {
+        isQuestCompleted = true;
+        isTalking = false;
+        isMoving = false;
+
+        rb.linearVelocity = Vector2.zero;
+
+        SetAnimationStates(idle: true, walk: false, talk: false);
+
+        if (interactPrompt != null)
+            interactPrompt.SetActive(false);
     }
 
     public bool IsPlayerInRange() => playerInRange;

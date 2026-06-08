@@ -18,23 +18,34 @@ MonoBehaviour:
     faceAnimationState: isTalk
     conversationText: Hey, you. Can you help me for a moment?
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 0
     characterName: Player
     faceAnimationState: 
     conversationText: What do you need?
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 0
     characterName: NPC
     faceAnimationState: isTalk
     conversationText: That object over there is mine. Please bring it back to me.
     timelineDirectorGameObjectName: 
+    bannerText: 
   - actionType: 1
     characterName: 
     faceAnimationState: 
     conversationText: 
     timelineDirectorGameObjectName: CinemachineCamera
+    bannerText: 
   - actionType: 0
     characterName: NPC
     faceAnimationState: isTalk
     conversationText: ' It is right there. Pick it up and come back.'
     timelineDirectorGameObjectName: 
+    bannerText: 
+  - actionType: 2
+    characterName: NPC
+    faceAnimationState: isTalk
+    conversationText: ' It is right there. Pick it up and come back.'
+    timelineDirectorGameObjectName: 
+    bannerText: Quest Start!
