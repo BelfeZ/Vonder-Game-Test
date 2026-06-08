@@ -18,5 +18,7 @@ Virtual camera for both timeline and cinemachine and put in scene.
 18.00pm - 20.00pm | Polish some script and UI and Check critical bug
 - Polish some UI and some timeline (Add some VFX and make dialogue portrait can play).
 
-20.00pm - 21.00pm | Clean up project
+20.00pm - 22.00pm | Clean up project
 - Delete some 3rd party asset that doesn't use in game.
+
+Total hour spent = 18 hr
