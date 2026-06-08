@@ -25,6 +25,7 @@ public class NPCManager : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private int currentPinpointIndex = 0;
     private bool isMoving = false;
     private bool isTalking = false;
@@ -38,6 +39,7 @@ public class NPCManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -188,9 +190,9 @@ public class NPCManager : MonoBehaviour
     private void Flip()
     {
         isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+
+        if (spriteRenderer != null)
+            spriteRenderer.flipX = !isFacingRight;
     }
 
     public void HandleTriggerEnter(Collider2D collision)
