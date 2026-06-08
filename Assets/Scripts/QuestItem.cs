@@ -33,7 +33,10 @@ public class QuestItem : MonoBehaviour
         if (arrow != null)
             arrow.ClearTarget();
 
-        BannerManager.Instance.ShowBanner("Got Item!");
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayPickUpItem();
+
+        BannerManager.Instance.ShowBanner("Got Item!", true);
         gameObject.SetActive(false);
     }
 

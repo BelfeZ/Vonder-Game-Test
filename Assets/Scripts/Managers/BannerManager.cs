@@ -17,12 +17,16 @@ public class BannerManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
         canvasGroup.alpha = 0;
     }
 
-    public void ShowBanner(string message)
+    public void ShowBanner(string message, bool isItemBanner = false)
     {
+        if (isItemBanner)
+            AudioManager.Instance?.PlayItemBanner();
+        else
+            AudioManager.Instance?.PlayQuestBanner();
+
         if (currentRoutine != null)
             StopCoroutine(currentRoutine);
 
@@ -48,10 +52,7 @@ public class BannerManager : MonoBehaviour
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-
-            canvasGroup.alpha =
-                Mathf.Lerp(from, to, elapsed / fadeDuration);
-
+            canvasGroup.alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
             yield return null;
         }
 

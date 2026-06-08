@@ -65,6 +65,8 @@ public class QuestManager : MonoBehaviour
             }
             else
             {
+                if (AudioManager.Instance != null) AudioManager.Instance.PlayDialogueNext();
+
                 AdvanceScenario();
             }
         }
@@ -99,8 +101,7 @@ public class QuestManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
 
-        if (fadeCoroutine != null)
-            StopCoroutine(fadeCoroutine);
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
 
         if (wasClosed)
         {
@@ -112,11 +113,12 @@ public class QuestManager : MonoBehaviour
             dialogueCanvasGroup.alpha = 1f;
         }
 
+        if (currentStepIndex == 0 && AudioManager.Instance != null) AudioManager.Instance.PlayDialogueStart();
+
         nameWindow.text = step.characterName;
         activeFullText = step.conversationText;
 
-        if (typingCoroutine != null)
-            StopCoroutine(typingCoroutine);
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
 
         typingCoroutine = StartCoroutine(TypeText(activeFullText));
     }
@@ -146,8 +148,7 @@ public class QuestManager : MonoBehaviour
 
     private void ExecuteBanner(ScenarioAction step)
     {
-        if (BannerManager.Instance != null)
-            BannerManager.Instance.ShowBanner(step.bannerText);
+        if (BannerManager.Instance != null) BannerManager.Instance.ShowBanner(step.bannerText);
 
         AdvanceScenario();
     }

@@ -108,6 +108,9 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && !isTalking)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayJump();
         }
     }
 
@@ -138,5 +141,11 @@ public class PlayerController : MonoBehaviour
     {
         isTalking = false;
         interactCooldown = 0.5f;
+    }
+
+    public void PlayFootstepSound()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayWalk();
     }
 }
