@@ -125,10 +125,12 @@ public class NPCManager : MonoBehaviour
         if (!hasStartedQuest)
         {
             hasStartedQuest = true;
+            BannerManager.Instance.ShowBanner("Quest Started!");
             QuestManager.Instance.StartScenario(scenarioData_Start);
         }
         else if (hasQuestItem)
         {
+            BannerManager.Instance.ShowBanner("Quest Completed!");
             QuestManager.Instance.StartScenario(scenarioData_End);
         }
     }

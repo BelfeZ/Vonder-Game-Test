@@ -33,6 +33,7 @@ public class QuestItem : MonoBehaviour
         if (arrow != null)
             arrow.ClearTarget();
 
+        BannerManager.Instance.ShowBanner("Got Item!");
         gameObject.SetActive(false);
     }
 

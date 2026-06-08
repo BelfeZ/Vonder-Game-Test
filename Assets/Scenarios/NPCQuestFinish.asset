@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfe36b612dbea247befb647cc6504e5, type: 3}
+  m_Name: NPCQuestFinish
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableData
+  scenarioSteps:
+  - actionType: 0
+    characterName: Player
+    faceAnimationState: 
+    conversationText: Is this what you were looking for?
+    timelineDirectorGameObjectName: 
+  - actionType: 0
+    characterName: NPC
+    faceAnimationState: isTalk
+    conversationText: Yes. Thank you.
+    timelineDirectorGameObjectName: 
+  - actionType: 0
+    characterName: NPC
+    faceAnimationState: isTalk
+    conversationText: My work here is done.
+    timelineDirectorGameObjectName: 
+  - actionType: 0
+    characterName: NPC
+    faceAnimationState: isTalk
+    conversationText: Goodbye.
+    timelineDirectorGameObjectName: 
+  - actionType: 1
+    characterName: 
+    faceAnimationState: 
+    conversationText: 
+    timelineDirectorGameObjectName: 
